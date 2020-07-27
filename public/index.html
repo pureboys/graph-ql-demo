@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button onclick="getData()">Get data</button>
+
+</body>
+
+<script>
+    function getData() {
+        const query = `
+            query A($id:Int, $comment_type: Int) {
+                getProInfo(id:$id) {
+                    id,
+                    proName,
+                    type,
+                    comment(comment_type: $comment_type)
+                }
+           }
+        `
+        const variables = {id: 1, comment_type: 1}
+
+        fetch('/graphql', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                query: query,
+                variables: variables,
+            })
+        }).then(res => res.json).then(json => {
+            console.log(data)
+        })
+
+    }
+</script>
+</html>
