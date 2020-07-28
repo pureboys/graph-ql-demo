@@ -1,3 +1,12 @@
+// query{
+//     getProInfo(id:1){
+//         id,
+//             proName,
+//             type,
+//             comment(comment_type:2)
+//     }
+// }
+
 let express = require('express');
 let { graphqlHTTP } = require('express-graphql');
 let { buildSchema } = require('graphql');

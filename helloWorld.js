@@ -1,3 +1,11 @@
+// query {
+//     ver,
+//         Method {
+//         counts,
+//             lists
+//     }
+// }
+
 let express = require('express');
 let { graphqlHTTP } = require('express-graphql');
 let { buildSchema } = require('graphql');
